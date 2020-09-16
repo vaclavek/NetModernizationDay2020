@@ -1,0 +1,20 @@
+﻿@model string[]
+@{
+    ViewData["Title"] = "Files";
+}
+
+<h1>Files</h1>
+
+@if(Model.Length == 0)
+{
+    <p>No files!</p>
+}
+else
+{
+    <ul>
+    @foreach(var file in Model)
+    {
+        <li><a class="nav-link text-dark" asp-area="" asp-controller="Download" asp-action="GetFile" asp-route-fileName="@file">@file</a></li>
+    }
+    </ul>
+}
