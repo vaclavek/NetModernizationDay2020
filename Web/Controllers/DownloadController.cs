@@ -11,6 +11,12 @@ namespace Web.Controllers
         public async Task<IActionResult> GetFile(string fileName)
         {
             var fi = new FileInfo(Path.Combine("Files", fileName));
+
+            if (!System.IO.File.Exists(fi.FullName))
+            {
+                return NotFound();
+            }
+
             var file = await System.IO.File.ReadAllBytesAsync(fi.FullName);
             return new FileContentResult(file, "application/octet-stream")
             {
