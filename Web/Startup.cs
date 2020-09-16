@@ -22,6 +22,7 @@ namespace Web
             services.AddControllersWithViews();
 
             services.AddTransient<ITimeService, ServerTimeService>();
+            services.AddTransient<IFileStorageService, PhysicalFileStorageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
