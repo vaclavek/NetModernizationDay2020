@@ -1,10 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@inject Web.Services.ITimeService timeService
 
 <div class="text-center">
     <h1 class="display-4">Welcome to .NET Modernization Day</h1>
-    <p>Local time is @DateTime.Now</p>
+    <p>Local time is @timeService.GetCurrentTime()</p>
     <p>UTC time is @DateTime.UtcNow</p>
-
 </div>
