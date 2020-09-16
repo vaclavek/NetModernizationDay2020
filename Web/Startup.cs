@@ -22,7 +22,8 @@ namespace Web
             services.AddControllersWithViews();
 
             services.AddTransient<ITimeService, ServerTimeService>();
-            services.AddTransient<IFileStorageService, PhysicalFileStorageService>();
+            services.AddTransient<IFileStorageService, AzureBlobStorageService>();
+            services.Configure<AzureBlobStorage>(Configuration.GetSection("AzureBlobStorage"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
